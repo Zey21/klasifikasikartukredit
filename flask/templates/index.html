@@ -31,39 +31,48 @@
             </div>
           </nav>
     </div>
-    <div style="padding-top: 200px; padding-left: 200px;">
-        <div class="card" style="width: 28rem;">
-            <div class="card-body">
-              <h5 class="card-title">Selamat Datang di Halaman penghitung klasifikasi kartu kredit</h5>
-              <h6 class="card-subtitle mb-2 text-muted" id="date"></h6>
-              <script>
-                n =  new Date();
-                y = n.getFullYear();
-                m = n.getMonth() + 1;
-                d = n.getDate();
-                document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-              </script>
-              <p class="card-text">Aplikasi ini bertujuan untuk menghitung akurasi dataset dari berbagai metode, yakni : KNN, Naive Bayes, Decision Tree </p>
-              <div>
-                <form action="/fitur">
-                    <style> 
-                        button:hover span {
-                        display: none
-                        }
-                        
-                        button:hover:before {
-                        content: "Mulai!"
-                        }
-                    </style>
-                    <button type="submit" class="btn btn-outline-secondary">
-                        <span>
-                            Klik disini!
-                        </span>
-                    </button>
-                </form>
+    <div class="d-flex align-items-start">
+
+        <div style="padding-top: 200px; padding-left: 200px;">
+            <div class="card" style="width: 28rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Selamat Datang di Halaman penghitung klasifikasi kartu kredit</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="date"></h6>
+                  <script>
+                    n =  new Date();
+                    y = n.getFullYear();
+                    m = n.getMonth() + 1;
+                    d = n.getDate();
+                    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+                  </script>
+                  <p class="card-text">Aplikasi ini bertujuan untuk menghitung akurasi dataset dari berbagai metode, yakni : KNN, Naive Bayes, Decision Tree </p>
+                  <div>
+                    <form action="sub.html">
+                        <style> 
+                            button:hover span {
+                            display: none
+                            }
+                            
+                            button:hover:before {
+                            content: "Mulai!"
+                            }
+                        </style>
+                        <button type="submit" class="btn btn-outline-secondary">
+                            <span>
+                                Klik disini!
+                            </span>
+                        </button>
+                    </form>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+        </div>
+        <div style="margin-top: 80px; margin-left: 90px; opacity: 0.5;">
+            <img src="https://cdn.discordapp.com/attachments/697333601410220033/1045149154961264671/bar-chart.png" alt="">
+        </div>
+        <div style="margin-top: 80px; margin-left: -520px; opacity: 0.25;">
+            <img src="https://cdn.discordapp.com/attachments/697333601410220033/1045137299064770630/radar-chart.png" alt="HomeIcon">
+        </div>
     </div>
 </body>
 </html>
