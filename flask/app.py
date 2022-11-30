@@ -6,10 +6,18 @@ app = Flask(__name__)
 
 @app.route('/',methods = ['POST','GET'])
 def web():
+    if request.method == 'POST':
+        kata = "Hello World"
+        angka = 123123
+        return render_template('result.html',Say = kata, Numb = angka)
     return render_template('index.html')
 
 @app.route('/home',methods = ['POST','GET'])
 def web1():
+    if request.method == 'POST':
+        kata = "Hello World"
+        angka = 123123
+        return render_template('result.html',Say = kata, Numb = angka)
     return render_template('index.html')
 
 @app.route('/result',methods = ['POST','GET'])
