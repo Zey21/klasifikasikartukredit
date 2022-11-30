@@ -18,6 +18,7 @@ def web3():
 @app.route('/fitur',methods = ['POST','GET'])
 def web2():
     if request.method == 'POST':
+        Card_Category = request.form['Card_Category']
         Gender = request.form['Gender']
         if(Gender == 'M') :
             Gender = [1,0]
@@ -71,22 +72,22 @@ def web2():
         Total_Trans_Ct = int(request.form['Total_Trans_Ct'])
         Total_Ct_Chng_Q4_Q1 = int(request.form['Total_Ct_Chng_Q4_Q1'])
         Avg_Utilization_Ratio = int(request.form['Avg_Utilization_Ratio'])
-        Temp = np.array[[Gender[0], Education_Level[0], Marital_Status[0], Income_Category[0], Customer_Age, Dependent_Count, Month_on_book, Credit_Limit, Total_Revolving_Bal, Avg_Open_to_Buy, Total_Amt_Chng_Q4_Q1, Total_Trans_Amt, Total_Trans_Ct, Total_Ct_Chng_Q4_Q1, Avg_Utilization_Ratio]]
-        
+        xtest = np.array[[Gender[0], Education_Level[0], Marital_Status[0], Income_Category[0], Customer_Age, Dependent_Count, Month_on_book, Credit_Limit, Total_Revolving_Bal, Avg_Open_to_Buy, Total_Amt_Chng_Q4_Q1, Total_Trans_Amt, Total_Trans_Ct, Total_Ct_Chng_Q4_Q1, Avg_Utilization_Ratio]]
+        ytest = np.array[[Card_Category]]
         # Naive Bayes Model from pickle
         Bayes_Model = os.path.join('bayes.pickle')
         Temp_Bayes = pickle.load(open(Bayes_Model, 'rb'))
-        Predict_Bayes = Temp_Bayes.predict(Temp)
+        Predict_Bayes = Temp_Bayes.score(xtest,ytest)*100
         
         # KNN Model from pickle
         KNN_Model = os.path.join('knn.pickle')
         Temp_KNN = pickle.load(open(KNN_Model, 'rb'))
-        Predict_KNN = Temp_KNN.predict(Temp)
+        Predict_KNN = Temp_KNN.score(xtest,ytest)*100
         
         #Decision Tree Model from pickle
         DTC_Model = os.path.join('dtc.pickle')
         Temp_DTC = pickle.load(open(DTC_Model, 'rb'))
-        Predict_DTC = Temp_DTC.predict(Temp)
+        Predict_DTC = Temp_DTC.score(xtest,ytest)*100
         
         return render_template('result.html', Result = Predict_Bayes, Result2 = Predict_KNN, Result3 = Predict_DTC)
         
