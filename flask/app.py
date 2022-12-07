@@ -165,11 +165,11 @@ def fitur():
         Predict_Bayes = (Temp_Bayes.score(X_test,y_test)*100)
         Kt_Bayes = Temp_Bayes.predict(X_test)
         
-        # # KNN Model from pickle
-        # KNN_Model = os.path.join('knn.pickle')
-        # Temp_KNN = pickle.load(open(KNN_Model, 'rb'))
-        # Predict_KNN = (Temp_KNN.score(X_test, y_test)*100)
-        # Kt_KNN = Temp_KNN.predict(X_test)
+        # KNN Model from pickle
+        KNN_Model = os.path.join('knn.pickle')
+        Temp_KNN = pickle.load(open(KNN_Model, 'rb'))
+        Predict_KNN = (Temp_KNN.score(X_test, y_test)*100)
+        Kt_KNN = Temp_KNN.predict(X_test)
         
         #Decision Tree Model from pickle
         DTC_Model = os.path.join('dtc.pickle')
@@ -177,7 +177,7 @@ def fitur():
         Predict_DTC = (Temp_DTC.score(X_test, y_test)*100)
         Kt_DTC = Temp_DTC.predict(X_test)
         
-        prediksi = "Naive Bayes :{}{} || KNN : System Eror(Fitur disable) || Decision Tree :{}{}".format(Predict_Bayes,Kt_Bayes,Predict_DTC,Kt_DTC)
+        prediksi = "Naive Bayes :{}{} || KNN : {}{} || Decision Tree :{}{}".format(Predict_Bayes,Kt_Bayes,Predict_KNN,Kt_KNN,Predict_DTC,Kt_DTC)
                 
         return prediksi
     else :
